@@ -134,7 +134,7 @@ const addStudent = async (id, name, age) => {
   });
 };
 
-const updateStudent = async (name, age, religion, id) => {
+const updateStudent = async (name, age, id, religion) => {
   const sql = `UPDATE student SET name=?, age=? religion=? WHERE id=?`;
   return new Promise((resolve, reject) => {
     knex_db
