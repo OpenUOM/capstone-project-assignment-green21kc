@@ -39,7 +39,7 @@ app.get("/listTeachers", async function (req, res) {
 app.post("/getTeacherInfo", async function (req, res) {
   let reqBody = req.body;
   console.log("Request received to get Teacher Info");
-  let data = await readTeacherInfo(reqBody.id);
+  let data = await readTeacherInfo(reqBody.name);
 
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
@@ -91,7 +91,7 @@ app.get("/listStudents", async function (req, res) {
 app.post("/getStudentInfo", async function (req, res) {
   let reqBody = req.body;
   console.log("Request received to get Student Info");
-  let data = await readStudentInfo(reqBody.id);
+  let data = await readStudentInfo(reqBody.name);
 
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
