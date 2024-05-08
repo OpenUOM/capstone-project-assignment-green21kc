@@ -68,7 +68,7 @@ const updateTeacher = async (name, age, id) => {
   const sql = `UPDATE teacher SET name=?, age=? WHERE id=?`;
   return new Promise((resolve, reject) => {
     knex_db
-      .raw(sql)
+      .raw(sql, [name, age, id])
       .then((data) => {
         resolve(data);
       })
@@ -138,7 +138,7 @@ const updateStudent = async (name, age, hometown, id) => {
   const sql = `UPDATE student SET name=?, age=?, hometown=?  WHERE id=?`;
   return new Promise((resolve, reject) => {
     knex_db
-      .raw(sql)
+      .raw(sql, [name, age, hometown, id])
       .then((data) => {
         resolve(data);
       })
