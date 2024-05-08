@@ -50,11 +50,11 @@ const readTeacherInfo = async (name) => {
   });
 };
 
-const addTeacher = async (id, name, age) => {
-  const sql = `INSERT INTO teacher(id,name,age) values (?, ?, ?)`;
+const addTeacher = async (name, age) => {
+  const sql = `INSERT INTO teacher(name,age) values ( ?, ?)`;
   return new Promise((resolve, reject) => {
     knex_db
-      .raw(sql)
+      .raw(sql, [name, age])
       .then((data) => {
         resolve(data);
       })
@@ -120,11 +120,11 @@ const readStudentInfo = async (id) => {
   });
 };
 
-const addStudent = async (id, name, age, hometown) => {
-  const sql = `INSERT INTO student(id,name,age,hometown) values (?, ?, ?, ?)`;
+const addStudent = async (name, age, hometown) => {
+  const sql = `INSERT INTO student(name,age,hometown) values ( ?, ?, ?)`;
   return new Promise((resolve, reject) => {
     knex_db
-      .raw(sql)
+      .raw(sql, [name, age, hometown])
       .then((data) => {
         resolve(data);
       })
