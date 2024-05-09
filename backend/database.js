@@ -22,20 +22,6 @@ const dbinitialize = async () => {
   testBase.resetDatabase(knex_db);
 };
 
-const addTeacher = async (name, age) => {
-  const sql = `INSERT INTO teacher(name,age) values ( ?, ?)`;
-  return new Promise((resolve, reject) => {
-    knex_db
-      .raw(sql, [name, age])
-      .then(() => {
-        resolve({ status: "Successfully inserted Teacher 12" });
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  });
-};
-
 const readTeachers = async () => {
   const sql = `SELECT * FROM teacher`;
   return new Promise((resolve, reject) => {
@@ -57,6 +43,20 @@ const readTeacherInfo = async (name) => {
       .raw(sql, [name])
       .then((data) => {
         resolve(data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+const addTeacher = async (name, age) => {
+  const sql = `INSERT INTO teacher(name,age) values ( ?, ?)`;
+  return new Promise((resolve, reject) => {
+    knex_db
+      .raw(sql, [name, age])
+      .then(() => {
+        resolve({ status: "Successfully inserted Teacher 12" });
       })
       .catch((error) => {
         reject(error);
