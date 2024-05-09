@@ -29,7 +29,7 @@ app.get("/dbinitialize", async function (req, res) {
 // ============== Teacher Related endpoints ==============
 
 app.get("/listTeachers", async function (req, res) {
-  console.log("Request received to list teachers");
+  console.log("Request received to list teachers ");
   let data = await readTeachers();
 
   res.setHeader("Content-Type", "application/json");
